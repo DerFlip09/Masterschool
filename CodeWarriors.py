@@ -28,9 +28,53 @@
             return num'''
 
 
-def filter_list(list_of_strings_and_nums):
+'''def filter_list(list_of_strings_and_nums):
     'return a new list with the strings filtered out'
     return [char for char in list_of_strings_and_nums if type(char) is int]
+'''
+'''def spin_words(sentence):
+    words = sentence.split()
+    controll_words = []
+    for word in words:
+        if len(word) >= 5:
+            controll_words.append(word[::-1])
+        else:
+            controll_words.append(word)
+    spinned_sentence = " ".join(controll_words)
+    return spinned_sentence'''
+
+# Write a function, which takes a non-negative integer (seconds) as input
+# and returns the time in a human-readable format (HH:MM:SS)
+# HH = hours, padded to 2 digits, range: 00 - 99
+# MM = minutes, padded to 2 digits, range: 00 - 59
+# SS = seconds, padded to 2 digits, range: 00 - 59
+# The maximum time never exceeds 359999 (99:59:59)
+
+'''def make_readable(seconds):
+    hours = seconds // 3600
+    minutes = (seconds % 3600) // 60
+    new_seconds = seconds % 60
+
+    return f"{hours:02}:{minutes:02}:{new_seconds:02}"
+'''
+
+# Digital root is the recursive sum of all the digits in a number.
+# Given n, take the sum of the digits of n.
+# If that value has more than one digit, continue reducing in this way until a single-digit number is produced.
+# The input will be a non-negative integer.
+
+'''
+def digital_root(n):
+    root_number = str(n)
+    while len(root_number) != 1:
+        loop_sum = 0
+        for i in range(len(root_number)):
+            loop_sum += int(root_number[i])
+        root_number = str(loop_sum)
+    return int(root_number)
 
 
-print(filter_list([4, 5, "h"]))
+print(digital_root(12345678))
+print(12345678 % 9 or 9)'''
+
+
