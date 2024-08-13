@@ -77,4 +77,39 @@ def digital_root(n):
 print(digital_root(12345678))
 print(12345678 % 9 or 9)'''
 
+'''def sort_array(source_array):
+    odd = sorted([num for num in source_array if num % 2 != 0])
+
+    result = []
+    counter = 0
+
+    for num in source_array:
+        if num % 2 != 0:
+            result.append(odd[counter])
+            counter += 1
+        else:
+            result.append(num)
+    return result
+
+def sort_array(arr):
+  odds = sorted((x for x in arr if x%2 != 0), reverse=True)
+  return [x if x%2==0 else odds.pop() for x in arr]'''
+
+
+'''def move_zeros(lst):
+    zeros = [num for num in lst if num == 0]
+    new_lst = []
+    for num in lst:
+        if num == 0:
+            continue
+        else:
+            new_lst.append(num)
+    return new_lst + zeros
+
+def move_zeros(array):
+    for i in array:
+        if i == 0:
+            array.remove(i) # Remove the element from the array
+            array.append(i) # Append the element to the end
+    return array'''
 

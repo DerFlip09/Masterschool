@@ -30,7 +30,7 @@ def value_getter(item):
 
 
 def top_n_words(freq, n):
-    sorted_list_of_appearances = sorted(freq.items(), key=value_getter, reverse=True) # sorts
+    sorted_list_of_appearances = sorted(freq.items(), key=value_getter, reverse=True)  # sorts
     for i in range(n):
         word, appearance = sorted_list_of_appearances[i]
         print(f"{word}: {appearance}")
@@ -41,7 +41,6 @@ def main():
     list_of_words = get_words(text_without_special_char)
     dict_of_words = word_frequency(list_of_words)
     top_n_words(dict_of_words, 50)
-
 
 
 if __name__ == "__main__":

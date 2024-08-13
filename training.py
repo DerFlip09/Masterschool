@@ -287,3 +287,17 @@ def main():
 
 if __name__ == "__main__":
   main()'''
+
+matrix = [[1,2,3], [4,5,6]]
+def rotate_matrix(matrix: list[list[int]]) -> list[list[int]]:
+    rotated_matrix = []
+    len_matrix = len(matrix)
+    len_row = len(matrix[0])
+    for place in range(len_row):
+        new_row = []
+        for row in range(len_matrix - 1, -1, -1):
+            new_row.append(matrix[row][place])
+        rotated_matrix.append(new_row)
+    return rotated_matrix
+
+print(rotate_matrix(matrix))
