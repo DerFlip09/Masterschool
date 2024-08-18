@@ -288,8 +288,7 @@ def main():
 if __name__ == "__main__":
   main()'''
 
-matrix = [[1,2,3], [4,5,6]]
-def rotate_matrix(matrix: list[list[int]]) -> list[list[int]]:
+'''def rotate_matrix(matrix: list[list[int]]) -> list[list[int]]:
     rotated_matrix = []
     len_matrix = len(matrix)
     len_row = len(matrix[0])
@@ -299,5 +298,30 @@ def rotate_matrix(matrix: list[list[int]]) -> list[list[int]]:
             new_row.append(matrix[row][place])
         rotated_matrix.append(new_row)
     return rotated_matrix
+'''
 
-print(rotate_matrix(matrix))
+import plotly.express as px
+import pandas as pd
+
+# Example data
+data = {
+    'Ship': ['Ship1', 'Ship2', 'Ship3'],
+    'Country': ['Country1', 'Country2', 'Country3'],
+    'Longitude': [10.0, 20.0, 30.0],
+    'Latitude': [50.0, 40.0, 30.0]
+}
+
+df = pd.DataFrame(data)
+
+# Create the map plot
+fig = px.scatter_geo(df,
+                     lon='Longitude',
+                     lat='Latitude',
+                     hover_name='Ship',
+                     hover_data={'Country': True},
+                     title='Ship Locations')
+
+# Show the plot
+fig.show()
+
+
