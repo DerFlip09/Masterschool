@@ -27,7 +27,6 @@
         else:
             return num'''
 
-
 '''def filter_list(list_of_strings_and_nums):
     'return a new list with the strings filtered out'
     return [char for char in list_of_strings_and_nums if type(char) is int]
@@ -95,7 +94,6 @@ def sort_array(arr):
   odds = sorted((x for x in arr if x%2 != 0), reverse=True)
   return [x if x%2==0 else odds.pop() for x in arr]'''
 
-
 '''def move_zeros(lst):
     zeros = [num for num in lst if num == 0]
     new_lst = []
@@ -113,3 +111,43 @@ def move_zeros(array):
             array.append(i) # Append the element to the end
     return array'''
 
+'''for i in range(1, 6):  # Rows of the table
+    for j in range(1, 6):  # Columns of the table
+         print(f"{i * j}\t", end="")
+    print()'''
+def multiplication_table(n):
+    # Print the top header
+    print("  ", end="")  # Starting space for alignment
+    for i in range(1, n + 1):
+        print(f"{i:3}", end="")  # Print column headers
+    print()  # Newline after the header
+
+    # Print the rows
+    for i in range(1, n + 1):
+        print(f"{i:2}", end="")  # Print the row header
+        for j in range(1, n + 1):
+            print(f"{i * j:3}", end="")  # Print the products
+        print()  # Newline after each row
+
+# Call the function with the desired size
+multiplication_table(10)
+
+def print_multiplication_header(num):
+    print("  ", end="")
+    for number in range(1, num + 1):
+        print(f"{number:3}", end="")
+    print()
+
+def print_multiplication_body(num):
+    for number in range(1, num + 1):
+        print(f"{number:2}", end="")
+        for multiplicator in range(1, num + 1):
+            print(f"{number * multiplicator:3}", end="")
+        print()
+
+def print_multiplication_table(num):
+    print_multiplication_header(num)
+    print_multiplication_body(num)
+
+
+print_multiplication_table(4)

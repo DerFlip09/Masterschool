@@ -300,7 +300,7 @@ if __name__ == "__main__":
     return rotated_matrix
 '''
 
-import plotly.express as px
+'''import plotly.express as px
 import pandas as pd
 
 # Example data
@@ -322,6 +322,8 @@ fig = px.scatter_geo(df,
                      title='Ship Locations')
 
 # Show the plot
-fig.show()
+fig.show()'''
 
+dict1 = {"hello": 4, "Why": 5}
+print(len(dict1))
 

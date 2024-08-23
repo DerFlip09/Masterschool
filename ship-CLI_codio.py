@@ -12,7 +12,7 @@ def load_data(filename):
 SHIPS = load_data("ship-data_codio.json")["data"]
 
 
-def initialize_CLI():
+def initialize_cli():
     """
     Creates the main Command Line Interface, and runs till the User type in "stop"
     """
@@ -181,7 +181,7 @@ def main():
     """
     the main function to start the command line interface
     """
-    initialize_CLI()
+    initialize_cli()
 
 
 if __name__ == "__main__":
