@@ -56,8 +56,8 @@ def print_multiplication_body(num):
     """
     for number in range(1, num + 1):
         print(f"{number:2}", end="")
-        for multiplicator in range(1, num + 1):
-            print(f"{number * multiplicator:3}", end="")
+        for multiplier in range(1, num + 1):
+            print(f"{number * multiplier:3}", end="")
         print()
 
 

@@ -1,6 +1,5 @@
 import re
 
-
 log_file = """
 *.amazon.co.uk    89
 *.doubleclick.net    139
@@ -26,11 +25,16 @@ www.google.com    162
 www.google-analytics.com    127
 www.googleapis.com    87
 """
+
+
 def get_log_list(log_file):
     return log_file.strip().split("\n")
 
+
 def get_domains(log_file):
-    return re.findall(r"\w+-?\w+\.\w+ ", log_file)
+    return re.findall(r"\w+-?\w+(?:\.\w\w)?\.\w+ ", log_file)
+
+
 def get_freq_dict(log_file):
     freq_dict = {}
     unique_domains = set(get_domains(log_file))
@@ -45,14 +49,36 @@ def get_freq_dict(log_file):
                 freq_dict[domain] = int(freq)
     return freq_dict
 
+
 def count_domains(log_file, min_hits):
-    freq_dict = get_freq_dict(log_file)
-    domain_freq_list = sorted([f"{domain} ({freq})" for domain, freq in freq_dict.items()
-                               if freq >= min_hits], key= lambda  reverse=True)
+    freq_dict = sorted(get_freq_dict(log_file).items(), key=lambda k: k[1], reverse=True)
+    domain_freq_list = [f"{domain} ({freq})" for domain, freq in freq_dict
+                        if freq >= min_hits]
     return "\n".join(domain_freq_list)
 
-print(count_domains(log_file, 100))
+
+def get_min_hits():
+    """
+    Prompts the user to enter a minimum number of hits for a domain.
+
+    :returns: Positive integer representing the minimum number of hits.
+    """
+    while True:
+        try:
+            min_hits = int(input("Enter the minimal hits for a domain: "))
+        except ValueError:
+            print("Please enter a positive number!")
+            continue
+        if min_hits < 0:
+            print("Please enter a positive number!")
+            continue
+        return min_hits
 
 
-Ship = {}
-Ship = Dict[str, Any]
+def main():
+    min_hits = get_min_hits()
+    print(count_domains(log_file, min_hits))
+
+
+if __name__ == "__main__":
+    main()

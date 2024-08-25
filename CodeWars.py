@@ -115,7 +115,7 @@ def move_zeros(array):
     for j in range(1, 6):  # Columns of the table
          print(f"{i * j}\t", end="")
     print()'''
-def multiplication_table(n):
+'''def multiplication_table(n):
     # Print the top header
     print("  ", end="")  # Starting space for alignment
     for i in range(1, n + 1):
@@ -150,4 +150,11 @@ def print_multiplication_table(num):
     print_multiplication_body(num)
 
 
-print_multiplication_table(4)
+print_multiplication_table(4)'''
+
+def get_random_key():
+    from random import randrange
+    random_key = randrange(, 27)
+    return random_key
+
+print(get_random_key())

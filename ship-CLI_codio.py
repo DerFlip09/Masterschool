@@ -135,7 +135,7 @@ def make_speed_histogram_file():
     sorted_ships = sorted(speed_by_ship_names.items(), key=lambda item: item[1])
     list_of_ships = [ship[0] for ship in sorted_ships]
     list_of_speeds = [ship[1] for ship in sorted_ships]
-    figure, axes = create_histogram(list_of_ships, list_of_speeds)
+    create_histogram(list_of_ships, list_of_speeds)
     plot.savefig("speed_histogram.jpg")
     return "file speed_histogram.jpg was successfully created"
 
