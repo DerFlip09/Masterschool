@@ -11,8 +11,8 @@ class Store:
 
 
 class Article:
-    def __init__(self):
-        pass
+    def __init__(self, price):
+        self.price = price
 
 
 if __name__ == "__main__":
