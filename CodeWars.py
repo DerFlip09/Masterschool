@@ -152,9 +152,13 @@ def print_multiplication_table(num):
 
 print_multiplication_table(4)'''
 
-def get_random_key():
-    from random import randrange
-    random_key = randrange(, 27)
-    return random_key
+'''def is_anagram(s, t):
+    test_string = list(s)
+    for char in t:
+        print(char)
+        test_string.remove(char)
+    if not test_string:
+        return True
+    return False
 
-print(get_random_key())
+print(is_anagram("hello", "lelho"))'''

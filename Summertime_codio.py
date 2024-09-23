@@ -5,10 +5,8 @@ def get_user_number():
 
 def main():
     '''this is the main function'''
-    # initialize the counter for while loop
     user_number = 0
     while user_number < 1000:
-        # add the input number to the counter
         user_number += get_user_number()
     print(f"Final sum: {user_number}")
 

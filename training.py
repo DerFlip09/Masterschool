@@ -324,6 +324,81 @@ fig = px.scatter_geo(df,
 # Show the plot
 fig.show()'''
 
-dict1 = {"hello": 4, "Why": 5}
-print(len(dict1))
+# parameter: List, number
+# return: True or False
+# task: check the sum of two consecutive numbers in list if the sum is the number
+'''def check_sum_of_numbers(numbers, sum_number):
+    for index in range(len(numbers) - 1):
+        sum_numbers = numbers[index] + numbers[index + 1]
+        if sum_numbers == sum_number:
+            return True
+    return False
 
+
+def check_sum_of_numbers(numbers, sum_number):
+    return any(numbers[i] + numbers[i + 1] == sum_number for i in range(len(numbers) - 1))
+
+
+lst = [34, 34, 19]
+num = 53
+print(check_sum_of_numbers(lst, num))'''
+
+'''def main():
+    print("Welcome to MessageRepeatr™ - easily repeat messages!")
+    filename = input("Please enter the name of file in which the messages should be written: ")
+    try:
+        file = open(filename, "r+")
+    except FileNotFoundError:
+        print(f"This file {filename} doesn't exist.")
+        file = open(filename, "w")
+    else:
+        print("Current content of file (will be overwritten!):\n")
+        print(file.read())
+    message = input("\nPlease enter the message you wish to repeat: ")
+    try:
+        repeats = int(input("Please enter the amount of times you wish to repeat the message: "))
+    except ValueError:
+        print("Positive number is needed.")
+    else:
+        file.write(message * repeats)
+        print("Successfully wrote messages to file! Goodbye 👋")
+    finally:
+        file.close()
+
+
+main()'''
+
+'''import requests
+
+
+REQUEST_URL = "https://www.themealdb.com/api/json/v1/1/search.php?s="
+
+def main():
+    meal_name = input("Enter meal name: ")
+    meal_data = requests.get(REQUEST_URL + meal_name).json()
+    meal_count = len(meal_data["meals"])
+    print(f"We found {meal_count} meal:\n")
+    for meal in meal_data["meals"]:
+        print(5*"*" + meal["strMeal"] + 5*"*")
+        print(f"Category: {meal["strCategory"]}")
+        print(f"Area: {meal["strArea"]}")
+        print(f"Intructions:\n{meal["strInstructions"]}")
+
+
+
+if __name__ == "__main__":
+    main()'''
+
+
+class Vehicle:
+   def __init__(self):
+      self.registration = "AB123"
+
+def print_registration(self):
+   print(self.registration)
+
+volkswagen = Vehicle()
+yamaha = Vehicle()
+volkswagen.registration = "PP789"
+print(yamaha.registration)
+volkswagen.print_registration()
