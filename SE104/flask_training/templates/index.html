@@ -1,0 +1,11 @@
+<html>
+    <head>
+        <title>{{ title }}</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <h1>Hello, {{ user }}!</h1>
+        <h2>It is <time>{{ datetime }}</time>!</h2>
+        {# <div id="details">You are {{ details["age"] }} old, and you come from {{ details["country"] }}!</div> #}
+    </body>
+</html>

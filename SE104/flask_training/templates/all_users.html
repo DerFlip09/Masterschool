@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>All Users</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <h1>Welcome, here are every User!</h1>
+        <ul>
+            {% for user, details in users.items() %}
+            <li>
+                {{ user }} is {{ details["age"] }} and comes from {{ details["country"] }}
+            </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

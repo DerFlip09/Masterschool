@@ -390,7 +390,7 @@ if __name__ == "__main__":
     main()'''
 
 
-from flask import Flask
+'''from flask import Flask
 from datetime import datetime
 
 app = Flask(__name__)
@@ -406,4 +406,135 @@ def hello():
 
 if __name__ == "__main__":
     # Launch the Flask dev server
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)'''
+
+
+'''# List of dictionaries: Each dictionary represents additional information about a student.
+student_info = [
+    {"name": "Alice", "age": 18, "gender": "female"},
+    {"name": "Bob", "age": 17, "gender": "male"},
+    {"name": "Charlie", "age": 18, "gender": "male"}
+]
+
+# List of lists: Each inner list represents the grades of a student.
+student_grades = [
+    [85, 90, 88],
+    [75, 80, 82],
+    [92, 95, 89]
+]
+
+# Dictionary of dictionaries: Each inner dictionary represents additional information about a student.
+student_details = {
+    "Alice": {"city": "New York", "grade_level": "Senior"},
+    "Bob": {"city": "Los Angeles", "grade_level": "Junior"},
+    "Charlie": {"city": "Chicago", "grade_level": "Senior"}
+}
+
+
+# Your task is to write a Python program to perform the following tasks:
+#
+# 1. Calculate the average grade for each student.
+# 2. Print out the name, age, grade level, and average grade for each student.
+# ### Which city is the student with the highest grade average from?
+#
+# - Write code that works for newer sets of students as well, not just this set.
+# - First focus on finding their name.
+
+def calc_avg(grades: list):
+    avg_grade = sum(grades) / len(grades)
+    return avg_grade
+
+
+def print_student_info(index):
+    name = student_info[index].get("name")
+    age = student_info[index].get("age")
+    grade_level = student_details[name].get("grade_level")
+    avg_grade = calc_avg(student_grades[index])
+    print(f"Student: {name}\nAge: {age}\nGrade Level: {grade_level}\nAverage Grade: {avg_grade:.2f}\n")
+
+
+def find_best_average_student():
+    highest_avg = 0
+    index = -1
+    for grades in student_grades:
+        avg = calc_avg(grades)
+        if avg > highest_avg:
+            highest_avg = avg
+        index += 1
+    return highest_avg, index
+
+
+def main():
+    for i in range(len(student_info)):
+        print_student_info(i)
+
+    grade, index = find_best_average_student()
+    name = student_info[index]["name"]
+    print(f"{name} from {student_details[name]["city"]} got the highest grade with {grade:.2f}")
+
+
+if __name__ == "__main__":
+    main()'''
+'''
+
+def number_from_list_of_digits(list_of_digits):
+    """
+    This function gets a list of int digits, like [1, 4, 0]
+    And returns the number made out of the digits, as int (140).
+	If there is a problem with input values, raises a ValueError.
+	If there is a problem with input types, raises a TypeError.
+    """
+
+    if not isinstance(list_of_digits, list):
+        raise TypeError("Give me a list, damn it!")
+    for num in list_of_digits:
+        if not isinstance(num, int):
+            raise ValueError("Common give a list of NUMBERS, idgit!")
+        if not 0 <= num <= 9:
+            raise ValueError("Give me a list with numbers in range 0 - 9!")
+
+    result = 0
+    power = len(list_of_digits) - 1
+    for number in list_of_digits:
+        result += number * 10 ** power
+        power -= 1
+    return result
+
+import pytest
+
+def test_number_from_list_of_digits():
+    assert number_from_list_of_digits([1, 4, 0]) == 140
+
+def test_fail_type_number_from_list_of_digits():
+    with pytest.raises(TypeError):
+        number_from_list_of_digits(140)
+
+def test_fail_value_number_from_list_of_digits():
+    with pytest.raises(ValueError):
+        number_from_list_of_digits([1, '4', 0])
+
+def test_tuple_input():
+    with pytest.raises(TypeError):
+        number_from_list_of_digits((1, 2, 5, 6))
+
+def test_great_numbers():
+    with pytest.raises(ValueError):
+        number_from_list_of_digits([100, 100500, 678, 5, 2345])
+
+def test_negative_numbers():
+    with pytest.raises(ValueError):
+        number_from_list_of_digits([-1, -8, 9, 5, -6])
+
+def test_0_first():
+    assert number_from_list_of_digits([0, 9, 9]) == 99
+
+def test_all_0():
+    assert number_from_list_of_digits([0, 0, 0]) == 0
+
+
+pytest.main()
+'''
+
+from SE104.flask_training.flask_app import users
+
+print(users)
